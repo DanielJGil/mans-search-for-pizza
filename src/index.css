@@ -7,40 +7,40 @@
 
   .loader {
     width: 45px;
-    aspect-ratio: 0.75;
-    --c: no-repeat linear-gradient(theme(colors.stone.800) 0 0);
+    aspect-ratio: 1;
+    --c: no-repeat
+      linear-gradient(#000 calc(50% - 10px), #0000 0 calc(50% + 10px), #000 0);
     background:
-      var(--c) 0% 50%,
-      var(--c) 50% 50%,
-      var(--c) 100% 50%;
-    background-size: 20% 50%;
-    animation: loading 1s infinite linear;
+      var(--c) 0% 100%,
+      var(--c) 50% 100%,
+      var(--c) 100% 100%;
+    background-size: 20% calc(200% + 20px);
+    animation: b4 1s infinite linear;
   }
-
-  @keyframes loading {
-    20% {
-      background-position:
-        0% 0%,
-        50% 50%,
-        100% 50%;
-    }
-    40% {
-      background-position:
-        0% 100%,
-        50% 0%,
-        100% 50%;
-    }
-    60% {
+  @keyframes b4 {
+    33% {
       background-position:
         0% 50%,
         50% 100%,
-        100% 0%;
+        100% 100%;
     }
-    80% {
+    50% {
       background-position:
-        0% 50%,
+        0% 0%,
         50% 50%,
         100% 100%;
+    }
+    66% {
+      background-position:
+        0% 0%,
+        50% 0%,
+        100% 50%;
+    }
+    100% {
+      background-position:
+        0% 0%,
+        50% 0%,
+        100% 0%;
     }
   }
 }
