@@ -9,11 +9,14 @@ function Button({ children, to, type }) {
     small: base + " px-4 py-2 text-xs uppercase md:px-5 md:py-2.5",
   };
 
-  return (
-    <Link to={to} className={styles[type]}>
-      {children}
-    </Link>
-  );
+  if (to)
+    return (
+      <Link to={to} className={styles[type]}>
+        {children}
+      </Link>
+    );
+
+  return <button className={styles[type]}>{children}</button>;
 }
 
 export default Button;

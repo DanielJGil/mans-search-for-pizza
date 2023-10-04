@@ -8,7 +8,7 @@ function CartOverview() {
         <p>$23.45</p>
       </div>
       <Button to="/cart" className="text-sm uppercase">
-        Open cart
+        Open cart &rarr;
       </Button>
     </div>
   );
