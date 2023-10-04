@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./ui/Home";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./features/cart/Cart";
-import Menu from "./features/menu/Menu";
+import Menu, { loader as menuLoader } from "./features/menu/Menu";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +17,7 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
+        loader: menuLoader,
       },
       {
         path: "/cart",

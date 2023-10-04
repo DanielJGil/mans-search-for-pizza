@@ -18,10 +18,7 @@ function CreateUser() {
       />
 
       {username && (
-        <Button
-          to="/menu"
-          className="rounded-full bg-orange-400 px-4 py-3 text-sm uppercase md:px-5 md:py-4"
-        >
+        <Button to="/menu" type="primary">
           Start ordering
         </Button>
       )}
