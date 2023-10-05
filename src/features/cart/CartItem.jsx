@@ -1,6 +1,5 @@
 function CartItem({ item }) {
   const { name, totalPrice, quantity } = item;
-  console.log(item);
 
   return (
     <li className="flex items-center justify-between py-4">
