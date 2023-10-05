@@ -45,7 +45,9 @@ function Cart() {
       </ul>
 
       <div className="flex space-x-4">
-        <Button type="primary">Order Pizzas</Button>
+        <Button to="/order/new" type="primary">
+          Order Pizzas
+        </Button>
         <Button type="clear">Clear Cart</Button>
       </div>
     </div>

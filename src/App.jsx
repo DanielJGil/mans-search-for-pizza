@@ -4,6 +4,7 @@ import Home from "./ui/Home";
 import AppLayout from "./ui/AppLayout";
 import Cart from "./features/cart/Cart";
 import Menu, { loader as menuLoader } from "./features/menu/Menu";
+import CreateOrder from "./features/order/CreateOrder";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
       },
     ],
   },
