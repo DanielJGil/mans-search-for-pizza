@@ -2,14 +2,17 @@ import { useNavigate } from "react-router";
 import Button from "../../ui/Button";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "./cartSlice";
+import { clearCart, getCart } from "./cartSlice";
+import EmptyCart from "./EmptyCart";
 
 function Cart() {
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart.cart);
+  const cart = useSelector(getCart);
   const name = useSelector((state) => state.user.username);
 
   const dispatch = useDispatch();
+
+  if (!cart.length) return <EmptyCart />;
 
   return (
     <div className="p-4">
