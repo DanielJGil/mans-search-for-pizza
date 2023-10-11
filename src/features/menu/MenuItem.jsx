@@ -4,8 +4,20 @@ import { addItem } from "../cart/cartSlice";
 import Button from "../../ui/Button";
 
 function MenuItem({ item }) {
-  const { imageUrl, name, ingredients, unitPrice, soldOut } = item;
+  const { imageUrl, name, ingredients, unitPrice, soldOut, id } = item;
   const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    const newItem = {
+      id,
+      name,
+      quantity: 1,
+      unitPrice,
+      totalPrice: unitPrice * 1,
+    };
+
+    dispatch(addItem(newItem));
+  }
 
   return (
     <li className="flex gap-4 py-2">
@@ -29,7 +41,7 @@ function MenuItem({ item }) {
           )}
 
           {!soldOut && (
-            <Button onClick={() => dispatch(addItem(item))} type="small">
+            <Button onClick={handleAddToCart} type="small">
               Add to cart
             </Button>
           )}
