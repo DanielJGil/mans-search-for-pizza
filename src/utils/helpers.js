@@ -6,3 +6,9 @@ export function formatDate(dateStr) {
     minute: "2-digit",
   }).format(new Date(dateStr));
 }
+
+// https://uibakery.io/regex-library/phone-number
+export const isValidPhone = (str) =>
+  /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
+    str,
+  );

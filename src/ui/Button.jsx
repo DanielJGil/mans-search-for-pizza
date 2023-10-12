@@ -1,10 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 
-function Button({ children, to, type, onClick }) {
+function Button({ children, to, type, onClick, disabled }) {
   const navigate = useNavigate();
 
   const base =
-    "rounded-full bg-orange-400 font-semibold tracking-wide focus:outline-none focus:ring focus:ring-orange-400 focus:ring-offset-2 hover:bg-orange-300 transition-colors duration-300";
+    "rounded-full bg-orange-400 font-semibold tracking-wide focus:outline-none focus:ring focus:ring-orange-400 focus:ring-offset-2 hover:bg-orange-300 transition-colors duration-300 disabled:cursor-not-allowed";
 
   const styles = {
     primary: base + " px-4 py-3 text-sm uppercase md:px-5 md:py-4",
@@ -36,7 +36,11 @@ function Button({ children, to, type, onClick }) {
       </button>
     );
 
-  return <button className={styles[type]}>{children}</button>;
+  return (
+    <button disabled={disabled} className={styles[type]}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;
