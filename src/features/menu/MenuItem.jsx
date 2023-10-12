@@ -4,6 +4,7 @@ import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
 import Button from "../../ui/Button";
 import DeleteItem from "../cart/DeleteItem";
 import UpdateItemQuantity from "../cart/UpdateItemQuantity";
+import { formatCurrency } from "../../utils/helpers";
 
 function MenuItem({ item }) {
   const { imageUrl, name, ingredients, unitPrice, soldOut, id } = item;
@@ -42,7 +43,7 @@ function MenuItem({ item }) {
               Sold out
             </p>
           ) : (
-            <p className="text-sm">€{unitPrice}.00</p>
+            <p className="text-sm">{formatCurrency(unitPrice)}</p>
           )}
 
           {!soldOut && !isInCart && (

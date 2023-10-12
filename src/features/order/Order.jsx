@@ -1,8 +1,13 @@
 import { useFetcher, useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiRestaurant";
 import OrderItem from "./OrderItem";
-import { calcMinutesLeft, formatDate } from "../../utils/helpers";
+import {
+  calcMinutesLeft,
+  formatCurrency,
+  formatDate,
+} from "../../utils/helpers";
 import { useEffect } from "react";
+import UpdateOrder from "./UpdateOrder";
 
 function Order() {
   const order = useLoaderData();
@@ -67,15 +72,19 @@ function Order() {
         ))}
       </ul>
 
-      <div className=" space-y-2 bg-stone-200 p-6">
-        <p className="text-sm font-medium">Pizza price: ${orderPrice}.00</p>
+      <div className=" mb-8 space-y-2 bg-stone-200 p-6">
         <p className="text-sm font-medium">
-          Priority price: ${priorityPrice}.00
+          Pizza price: {formatCurrency(orderPrice)}
+        </p>
+        <p className="text-sm font-medium">
+          Priority price: {formatCurrency(priorityPrice)}
         </p>
         <p className="font-semibold">
-          To pay on delivery: ${orderPrice + priorityPrice}.00
+          To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }

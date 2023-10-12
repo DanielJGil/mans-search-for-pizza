@@ -44,7 +44,7 @@ function CreateOrder() {
           <label htmlFor="name" className="sm:basis-40">
             First Name
           </label>
-          <FormInput id="customer" name="customer" />
+          <FormInput id="customer" name="customer" defaultValue={username} />
         </div>
 
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
