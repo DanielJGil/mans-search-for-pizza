@@ -31,7 +31,7 @@ function Button({ children, to, type, onClick, disabled }) {
 
   if (onClick)
     return (
-      <button onClick={onClick} className={styles[type]}>
+      <button onClick={onClick} disabled={disabled} className={styles[type]}>
         {children}
       </button>
     );

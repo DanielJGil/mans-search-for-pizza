@@ -1,29 +1,47 @@
 import { useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiRestaurant";
 import OrderItem from "./OrderItem";
-import { formatDate } from "../../utils/helpers";
+import { calcMinutesLeft, formatDate } from "../../utils/helpers";
 
 function Order() {
   const order = useLoaderData();
 
-  const { id, estimatedDelivery, orderPrice, priorityPrice, cart } = order;
+  const {
+    id,
+    estimatedDelivery,
+    orderPrice,
+    priorityPrice,
+    cart,
+    priority,
+    status,
+  } = order;
+
+  const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
     <div className="px-4 py-6">
       <div className="flex flex-wrap items-center justify-between gap-4 ">
         <h2 className="text-xl font-semibold">Order #{id} status</h2>
         <div className="flex gap-3 text-sm font-semibold">
-          <p className="rounded-full bg-red-500 px-3 py-1 uppercase text-stone-100">
-            Priority
-          </p>
+          {priority && (
+            <p className="rounded-full bg-red-500 px-3 py-1 uppercase text-stone-100">
+              Priority
+            </p>
+          )}
           <p className="rounded-full bg-green-500 px-3 py-1 uppercase text-stone-100">
-            Preparing order
+            {status} order
           </p>
         </div>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 bg-stone-200 px-6 py-5">
-        <p className="font-semibold">Order should have arrived</p>
+        <p className="font-semibold">
+          {deliveryIn > 0
+            ? `Order will arrive in ${calcMinutesLeft(
+                estimatedDelivery,
+              )} minutes`
+            : "Order should have arrived"}
+        </p>
         <p className="text-xs">
           (Estimated delivery: {formatDate(estimatedDelivery)})
         </p>
