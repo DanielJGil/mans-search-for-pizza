@@ -3,6 +3,11 @@ LIVE DEMO URL: https://mans-search-for-pizza.vercel.app/
 
 This is a small restaurant application where users are able to add items from the menu into their cart, order the items and then view existing orders.
 
+I created this app using React and used an API which contains all the restaurant data and allows new orders to be created on the database.
+
+My technology decisions:
+Routing - React Router / Styling - Tailwind / Remote State Management - React Router / UI State Management - Redux
+
 Application features:
 - The users are greeted with a homepage where they can input their name or search for an exisiting order.
   <img width="1470" alt="Screenshot 2023-11-14 at 14 49 06" src="https://github.com/DanielJGil/mans-search-for-pizza/assets/131858991/62cee3e4-2d32-4392-9ac9-bb0794910b76">
@@ -21,7 +26,6 @@ Application features:
 - Once the user orders the food, a new page will display with the information of the current order, including estimated delivery time. This order can also be searched for later using the ORDER ID.
 <img width="1470" alt="Screenshot 2023-11-14 at 14 50 24" src="https://github.com/DanielJGil/mans-search-for-pizza/assets/131858991/139bdfc2-fea6-49dd-9dbf-b85e153ad2da">
 
-I created this app using React and used an API which contains all the restaurant data and allows new orders to be created on the database.
 
-My technology decisions:
-Routing - React Router / Styling - Tailwind / Remote State Management - React Router / UI State Management - Redux
+
+
